@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             VStack(spacing:0) {
-                NavigationBarView()
+                NavigationBarView(isLoadedCart: true)
                     .padding(.horizontal, 15)
                     .padding(.bottom)
                     .padding(.top , UIApplication.shared.windows.first?.safeAreaInsets.top)
@@ -27,6 +27,8 @@ struct ContentView: View {
                         FeaturedTabView()
                             .padding(.vertical,20)
                             .frame(minHeight: 150, idealHeight: 250, maxHeight: .infinity, alignment: .center)
+                        
+                        CategoryGridView()
                         
                         FooterView()
                             .padding(.horizontal)
