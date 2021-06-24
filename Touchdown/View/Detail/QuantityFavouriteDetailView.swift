@@ -10,9 +10,6 @@ import SwiftUI
 struct QuantityFavouriteDetailView: View {
     
     @State private var counter: Int = 0
-    private let hapticImpact = UIImpactFeedbackGenerator(style: .soft)
-    private let hapticImpactMedium = UIImpactFeedbackGenerator(style: .medium)
-    private let feedbackgenerator = UINotificationFeedbackGenerator()
     
     var body: some View {
         HStack(alignment: .center, spacing: 6, content: {
@@ -20,7 +17,7 @@ struct QuantityFavouriteDetailView: View {
             Button(action: {
                 if counter > 0 {
                     counter -= 1
-                    hapticImpact.impactOccurred()
+                    feedbackSoft.impactOccurred()
                 }else{
                     feedbackgenerator.notificationOccurred(.warning)
                 }
@@ -35,7 +32,7 @@ struct QuantityFavouriteDetailView: View {
             Button(action: {
                 if counter < 100 {
                     counter += 1
-                    hapticImpact.impactOccurred()
+                    feedbackSoft.impactOccurred()
                 }else{
                     feedbackgenerator.notificationOccurred(.warning)
                 }
@@ -46,7 +43,7 @@ struct QuantityFavouriteDetailView: View {
             Spacer()
             
             Button(action: {
-                hapticImpactMedium.impactOccurred()
+                feedback.impactOccurred()
             }, label: {
                 Image(systemName: "heart.circle")
                     .foregroundColor(.pink)
